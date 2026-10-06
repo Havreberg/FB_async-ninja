@@ -9,6 +9,7 @@
 - writer.js (skriver data til en fil)
 - bin/www (starter serveren)
 - data.json (datafil)
+- package.json (dependencies)
 
 **Hvor håndteres routes?**
 - i app.js
