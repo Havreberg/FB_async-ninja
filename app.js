@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/reader', readerRouter);
+app.use('/', readerRouter);
 app.use('/writer', writerRouter);
 
 // catch 404 and forward to error handler
