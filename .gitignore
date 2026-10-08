@@ -13,4 +13,4 @@
 /node_modules/pug/
 
 # Runtime log
-/data/log.txt
+/data/*

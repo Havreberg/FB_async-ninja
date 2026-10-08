@@ -1,8 +1,8 @@
-var express = require('express');
-var fs = require('fs').promises;
-var path = require('path');
-var emitter = require('../EventEmitter');
-var router = express.Router();
+const express = require('express');
+const fs = require('fs').promises;
+const path = require('path');
+const emitter = require('../EventEmitter');
+const router = express.Router();
 const filePath = path.join(__dirname, '..', 'data', 'data.json');
 
 router.post('/', async function(req, res) {
