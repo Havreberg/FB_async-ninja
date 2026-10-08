@@ -1,7 +1,8 @@
-var express = require('express');
-var fs = require('fs').promises;
-var path = require('path');
-var router = express.Router();
+const express = require('express');
+const fs = require('fs').promises;
+const path = require('path');
+const emitter = require('../EventEmitter');
+const router = express.Router();
 const filePath = path.join(__dirname, '..', 'data', 'data.json');
 
 router.post('/', async function(req, res) {
@@ -12,6 +13,7 @@ router.post('/', async function(req, res) {
   try {
     const data = { content: req.body.content };
     await fs.writeFile(filePath, JSON.stringify(data, null, 2), 'utf8');
+    emitter.emit('file-access', { action: 'write', file: 'data.json' });
     return res.status(200).json({ message: 'Indholdet blev skrevet til filen.' });
   } catch (err) {
     return res.status(500).json({ error: 'Indholdet kunne ikke gemmes i filen. Prøv igen senere.' });
